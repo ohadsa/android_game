@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="frame1_LBL_details" type="id" />
+    <item name="frame1_LBL_top_1" type="id" />
+    <item name="frame1_LBL_top_2" type="id" />
+    <item name="frame1_LBL_top_3" type="id" />
+    <item name="frame1_LBL_top_4" type="id" />
+    <item name="frame1_LBL_top_5" type="id" />
+    <item name="frame1_LBL_top_6" type="id" />
+    <item name="frame1_LBL_top_7" type="id" />
+    <item name="frame1_LBL_top_8" type="id" />
+    <item name="frame1_LBL_top_9" type="id" />
+    <item name="frame1_LBL_top_10" type="id" />
+</resources>

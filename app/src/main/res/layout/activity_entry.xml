@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EntryActivity"
+    android:layout_gravity="center_horizontal">
+
+
+    <ImageView
+        android:id="@+id/panel_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </ImageView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/headLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text=" ARE YOU FAST \nENOUGH ?"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="NAME:"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/panel_inputTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:maxLines="1"
+        android:textAlignment="center"
+        android:maxLength="20"
+        android:ems="30"
+        android:textColor="@color/black"
+        android:layout_marginTop="300dp"
+        android:layout_marginHorizontal="100dp"
+        android:textSize="20sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:text="GAME SPEED:"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <RadioGroup
+        android:id="@+id/panel_radioGroup_speed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/slow"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:outlineAmbientShadowColor="@color/black"
+            android:text="SLOW"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:buttonTint="@color/black"
+            android:outlineAmbientShadowColor="@color/black"
+            android:text="MEDIUM"
+            android:textColor="@color/black"
+            android:checked="true"
+            android:textSize="18dp" />
+
+        <RadioButton
+            android:id="@+id/fast"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:buttonTint="@color/black"
+            android:outlineAmbientShadowColor="@color/black"
+            android:text="FAST"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+    </RadioGroup>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="557dp"
+        android:text="LETS GO ! "
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/panel_btn_sensorsGame"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="590dp"
+        android:text="high tech game "
+        app:layout_constraintEnd_toEndOf="@+id/headLine"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/headLine"
+        app:layout_constraintTop_toTopOf="@+id/headLine"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/panel_btn_buttonsGame"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="590dp"
+        android:text="old-school game "
+        app:layout_constraintEnd_toEndOf="@+id/headLine"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/headLine"
+        app:layout_constraintTop_toTopOf="@+id/headLine">
+    </Button>
+
+
+    <Button
+        android:id="@+id/panel_btn_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:text=" go to top-10 around the world "
+        app:layout_constraintStart_toStartOf="@+id/headLine"
+        app:layout_constraintTop_toTopOf="@+id/headLine">
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
