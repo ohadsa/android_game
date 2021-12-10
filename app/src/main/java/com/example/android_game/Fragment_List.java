@@ -74,7 +74,7 @@ public class Fragment_List extends Fragment {
 
 
         if (numOfRecords == 0) {
-            callBack_map.rename_lbl("" , false );
+            frame1_LBL_details.setText("not records yet");
         }
         else
             frame1_LBL_details.setText("touch name to see location on map");
