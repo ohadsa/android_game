@@ -173,7 +173,6 @@ public class GameActivity extends AppCompatActivity {
     private void initRightButtonLisener() {
         panel_IMG_right.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("ppt", "mat: " + boardMatrix[0].length + "  " + boardMatrix.length);
                 if (playerPos + 1 < boardMatrix[0].length && lifeState >= 0) {
                     updatePlayerPos(playerPos + 1);
                 }
@@ -231,7 +230,6 @@ public class GameActivity extends AppCompatActivity {
 
     private void initGameView() {
         player = getParameterFromBundle();
-        Log.d("ohado", "init : ");
         panel_IMG_life = new ImageView[]{
                 findViewById(R.id.panel_IMG_life_0),
                 findViewById(R.id.panel_IMG_life_1),
@@ -289,7 +287,6 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private Player getParameterFromBundle() {
-        Log.d("ohado", "getParameterFromBundle: ");
         Bundle extras = getIntent().getBundleExtra("Bundle");
         Player player =  new Player()
                 .setName(extras.getString(GameActivity.PLAYER_NAME))
@@ -298,7 +295,6 @@ public class GameActivity extends AppCompatActivity {
                 .setLon(extras.getDouble(GameActivity.LONGITUDE))
                 .setLat(extras.getDouble(GameActivity.LATITUDE));
 
-        Log.d("ohadsa", "onSuccess: " + player.getLat()   + "  " + player.getLon() );
         return player;
     }
 

@@ -23,6 +23,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Fragment_Map extends Fragment implements OnMapReadyCallback {
 
+    public static final Double THAILAND_LONDTITUDE = 100.5018  ;
+    public static final Double THAILAND_LANTITUDE = 13.7563 ;
+
     private AppCompatActivity activity;
     private CallBack_Map callBack_map;
     private TextView _LBL_details ;
@@ -76,8 +79,12 @@ public class Fragment_Map extends Fragment implements OnMapReadyCallback {
         this.mMap = googleMap;
     }
 
-    public void setText(String txt) {
-        _LBL_details.setText(txt + " played here !! ");
+    public void setText(String txt , Boolean GPSok ) {
+        if(GPSok)
+            _LBL_details.setText(txt + " played here !! ");
+        else
+            _LBL_details.setText(txt);
+
     }
 
     public void pointOnMap(double x, double y) {

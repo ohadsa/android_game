@@ -122,7 +122,6 @@ public class EntryActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
-                        Log.d("ohadsa", "onSuccess: " + location.getLatitude() + "  " + location.getLongitude());
                         if (location != null) {
                             startGame(location.getLongitude() , location.getLatitude() );
                         }
@@ -132,7 +131,8 @@ public class EntryActivity extends AppCompatActivity {
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        startGame( 100.5018 , 13.7563 );
+
+                        startGame( Fragment_Map.THAILAND_LONDTITUDE ,  Fragment_Map.THAILAND_LANTITUDE );
                     }
                 });
 

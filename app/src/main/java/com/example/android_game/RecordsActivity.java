@@ -39,8 +39,8 @@ public class RecordsActivity extends AppCompatActivity {
         fragmentList = new Fragment_List();
         fragmentList.setActivity(this);
         fragmentList.setCallBackList(callBackList);
+        fragmentList.setCallBack_map(callBack_map);
         getSupportFragmentManager().beginTransaction().add(R.id.frame1, fragmentList).commit();
-
         fragmentMap = new Fragment_Map();
         fragmentMap.setActivity(this);
         fragmentMap.setCallBack_map(callBack_map);
@@ -65,17 +65,19 @@ public class RecordsActivity extends AppCompatActivity {
         if (isEntryExist)
             finish();
         else {
-            Intent myIntent = new Intent(this , EntryActivity.class);
+            Intent myIntent = new Intent(this, EntryActivity.class);
             startActivity(myIntent);
             finish();
         }
     }
 
     CallBack_Map callBack_map = new CallBack_Map() {
-        @Override
-        public void mapClicked(double lat, double lon) {
 
+        @Override
+        public void rename_lbl(String txt, Boolean GPSok) {
+            fragmentMap.setText("was unable to locate GPS - here's THAILAND " , false );
         }
+
     };
 
 
@@ -88,8 +90,8 @@ public class RecordsActivity extends AppCompatActivity {
 
         @Override
         public void placeOnMap(double x, double y, String name) {
-            fragmentMap.setText(name);
-            fragmentMap.pointOnMap(x,y);
+            fragmentMap.setText(name , true );
+            fragmentMap.pointOnMap(x, y);
 
         }
     };

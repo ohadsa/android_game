@@ -18,9 +18,13 @@ public class Adapter_Player extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private Activity activity;
     private ArrayList<Player> players = new ArrayList<>();
     private CallBack_List callBackList ;
+    private CallBack_Map callBack_map;
     private int[] numbers_image = new int[10] ;
 
-    public Adapter_Player(Activity activity, ArrayList<Player> movies) {
+    public Adapter_Player(Activity activity, ArrayList<Player> movies , CallBack_List callBackList , CallBack_Map callBack_map ) {
+
+        this.callBack_map = callBack_map;
+        this.callBackList = callBackList;
         this.activity = activity;
         this.players = movies;
 
@@ -41,6 +45,7 @@ public class Adapter_Player extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_player, parent, false );
         return new PlayerViewHolder(view);
     }
@@ -63,6 +68,12 @@ public class Adapter_Player extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.callBackList = callBackList ;
         return this;
     }
+
+    public Adapter_Player setCallBackMap(CallBack_Map callBackMap){
+        this.callBack_map = callBackMap ;
+        return this;
+    }
+
     private Player getItem(int position) {
         return players.get(position);
     }
@@ -91,6 +102,8 @@ public class Adapter_Player extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 public void onClick(View v) {
 
                     callBackList.placeOnMap(p.getLat() , p.getLon() , p.getName() );
+                    if(p.getLat() == Fragment_Map.THAILAND_LANTITUDE && p.getLon() == Fragment_Map.THAILAND_LONDTITUDE )
+                        callBack_map.rename_lbl("was not GPS connection so that is thailand" , false );
                 }
             });
         }

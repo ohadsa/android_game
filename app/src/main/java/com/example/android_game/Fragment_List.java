@@ -21,9 +21,10 @@ public class Fragment_List extends Fragment {
 
     private AppCompatActivity activity;
     private CallBack_List callBackList;
-    private TextView[] frame1_LBL_top;
+    private CallBack_Map callBack_map ;
     private ArrayList<Player> top_10;
     private RecyclerView main_LST_records;
+    private TextView lbl_Line_map ;
 
 
     private TextView frame1_LBL_details;
@@ -33,9 +34,16 @@ public class Fragment_List extends Fragment {
         this.activity = activity;
     }
 
-    public void setCallBackList(CallBack_List callBackList) {
+    public Fragment_List setCallBackList(CallBack_List callBackList) {
         this.callBackList = callBackList;
+        return this;
     }
+
+    public Fragment_List setCallBack_map(CallBack_Map callBack_map){
+        this.callBack_map = callBack_map;
+        return this;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,13 +73,13 @@ public class Fragment_List extends Fragment {
         ArrayList<View.OnClickListener> listeners = new ArrayList<>();
 
 
-        if (numOfRecords == 0)
-            frame1_LBL_details.setText("no records yet");
+        if (numOfRecords == 0) {
+            callBack_map.rename_lbl("" , false );
+        }
         else
             frame1_LBL_details.setText("touch name to see location on map");
 
-        Adapter_Player adapter_player = new Adapter_Player(activity, top_10)
-                .setCallBackList(callBackList);
+        Adapter_Player adapter_player = new Adapter_Player(activity, top_10,callBackList,callBack_map);
 
         main_LST_records.setLayoutManager(new GridLayoutManager(activity, 1));
         main_LST_records.setHasFixedSize(true);
@@ -85,17 +93,7 @@ public class Fragment_List extends Fragment {
 
         frame1_LBL_details = view.findViewById(R.id.frame1_LBL_details);
         main_LST_records = view.findViewById(R.id.main_LST_records);
-        frame1_LBL_top = new TextView[10];
-        frame1_LBL_top[0] = view.findViewById(R.id.frame1_LBL_top_1);
-        frame1_LBL_top[1] = view.findViewById(R.id.frame1_LBL_top_2);
-        frame1_LBL_top[2] = view.findViewById(R.id.frame1_LBL_top_3);
-        frame1_LBL_top[3] = view.findViewById(R.id.frame1_LBL_top_4);
-        frame1_LBL_top[4] = view.findViewById(R.id.frame1_LBL_top_5);
-        frame1_LBL_top[5] = view.findViewById(R.id.frame1_LBL_top_6);
-        frame1_LBL_top[6] = view.findViewById(R.id.frame1_LBL_top_7);
-        frame1_LBL_top[7] = view.findViewById(R.id.frame1_LBL_top_8);
-        frame1_LBL_top[8] = view.findViewById(R.id.frame1_LBL_top_9);
-        frame1_LBL_top[9] = view.findViewById(R.id.frame1_LBL_top_10);
+        lbl_Line_map = view.findViewById(R.id.data);
 
     }
 
