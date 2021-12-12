@@ -112,41 +112,22 @@ public class GameActivity extends AppCompatActivity {
     };
 
     private int getDiverPos(float x) {
-//
-//        if (x >= 0.8 ) {
-//            if(playerPos > 0)
-//                return playerPos - 1 ;
-//            else
-//                return playerPos ;
-//        }
-//
-//        if (x < 0.8 && x >= -0.8) {
-//           return playerPos ;
-//        }
-//
-//        if (x <= -0.8) {
-//            if(playerPos < boardMatrix[0].length - 1 )
-//                return playerPos + 1 ;
-//            else
-//                return playerPos;
-//
-//        }
 
 
-        if (x > 2.5) {
+        if (x > 3) {
             return 0;
         }
-        if (x <= 2.5 && x >= 1) {
+        if (x <= 3 && x >= 1) {
             return 1;
         }
         if (x < 1 && x >= -1) {
             return 2;
         }
 
-        if (x < -1 && x >= -2.5) {
+        if (x < -1 && x >= -3) {
             return 3;
         }
-        if (x < -2.5) {
+        if (x < -3) {
             return 4;
         }
 
@@ -173,6 +154,7 @@ public class GameActivity extends AppCompatActivity {
     private void initRightButtonLisener() {
         panel_IMG_right.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Log.d("ppt", "mat: " + boardMatrix[0].length + "  " + boardMatrix.length);
                 if (playerPos + 1 < boardMatrix[0].length && lifeState >= 0) {
                     updatePlayerPos(playerPos + 1);
                 }
@@ -230,6 +212,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void initGameView() {
         player = getParameterFromBundle();
+        Log.d("ohado", "init : ");
         panel_IMG_life = new ImageView[]{
                 findViewById(R.id.panel_IMG_life_0),
                 findViewById(R.id.panel_IMG_life_1),
@@ -287,6 +270,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private Player getParameterFromBundle() {
+
         Bundle extras = getIntent().getBundleExtra("Bundle");
         Player player =  new Player()
                 .setName(extras.getString(GameActivity.PLAYER_NAME))

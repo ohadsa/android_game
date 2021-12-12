@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -26,6 +27,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class EntryActivity extends AppCompatActivity {
     public enum speed {SLOW, MEDIUM, FAST}
 
+    public static final int LOCATION_REQUEST_CODE  = 1001 ;
     private TextInputEditText panel_inputTxt;
     private Button panel_btn_records;
     private Button panel_btn_sensorsGame;
@@ -38,6 +40,7 @@ public class EntryActivity extends AppCompatActivity {
     private String playerName ;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,7 @@ public class EntryActivity extends AppCompatActivity {
         panel_radioGroup_speed = findViewById(R.id.panel_radioGroup_speed);
         panel_IMG_background = findViewById(R.id.panel_IMG_background);
         panel_inputTxt = findViewById(R.id.panel_inputTxt);
+        askToEnableGps();
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         Glide
                 .with(this)
@@ -78,6 +82,17 @@ public class EntryActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void askToEnableGps() {
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+
+            if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)){
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_REQUEST_CODE  );
+            }else{
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION},LOCATION_REQUEST_CODE  );
+            }
+        }
     }
 
     private String getPlayerName() {
