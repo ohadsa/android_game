@@ -451,7 +451,8 @@ public class GameActivity extends AppCompatActivity {
 
     public void vibrate_init() {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(500);
+        v.vibrate(200);
+
     }
 
 }
